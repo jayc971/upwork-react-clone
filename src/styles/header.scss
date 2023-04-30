@@ -1,0 +1,140 @@
+$color_1: var(--grey);
+$color_2: var(--black);
+$background-color_1: var(--white);
+$gray-color: var(--grey-light-2);
+$arrow-color: var(--green-side-arrow);
+
+/*Header css start*/
+/*Header css end*/
+.header {
+  font-size: 1.4rem;
+  position: fixed;
+  width: 100%;
+  background-color: $background-color_1;
+  z-index: 101;
+}
+.header_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0 2.5rem;
+  border-bottom: 1px solid var(--grey-light);
+}
+
+.header_nav_menu{
+  position: relative;
+  display: flex;
+  background: var(--white);
+  z-index: 999;
+  padding: 0 2.5rem;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--grey-light);
+}
+
+.header_nav_menu_left {
+  align-items: center;
+  img {
+    height: 2.5rem;
+  }
+}
+
+.header_left {
+  display: flex;
+  align-items: center;
+  img {
+    height: 2.5rem;
+  }
+}
+
+.header_nav_menu_item{
+  position: relative;
+  padding: 15px 32px;
+  cursor: pointer;
+  min-width: 300px;
+
+  p{
+    color: $gray-color;
+    padding: 7px 0 0 0;
+  }
+
+  svg{
+    width: 24px;
+
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%,-50%);
+  }
+
+}
+
+.header_nav_menu_item:hover{
+  background: #f2f7f2;
+}
+
+
+
+.header_nav_menu_items {
+  align-items: center;
+  color: var(--black);
+  font-weight: 500;
+  margin: 2rem 0;
+}
+
+.header_left_list {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+  color: $color_2;
+  font-weight: 500;
+}
+.header_left_list_item {
+  display: flex;
+  align-items: center;
+  margin: 0 1.5rem;
+  cursor: pointer;
+  img {
+    width: 12px;
+    margin-left: 0.5rem;
+  }
+}
+.header_right {
+  display: flex;
+  align-items: center;
+}
+.header_right_form {
+  position: relative;
+  width: var(--input-form-width);
+  input {
+    height: var(--input-height);
+    border-radius: var(--input-radius);
+    border: 1px solid var(--grey-light);
+    outline: none;
+    width: 100%;
+    padding-left: 5rem;
+    &::placeholder {
+      font-weight: 700;
+      padding: 0.8rem;
+    }
+  }
+}
+.header_right_form_input_icons {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 11px;
+  left: 16px;
+  img {
+    &:nth-child(1) {
+      width: 20px;
+    }
+    &:nth-child(2) {
+      width: 12px;
+    }
+  }
+}
+.header_right_btns {
+  margin-left: 1rem;
+}
