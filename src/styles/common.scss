@@ -67,3 +67,7 @@ $fw-500: var(--fw-500);
 .fw-500{
   font-weight: $fw-500;
 }
+
+.hidden{
+  display: none!important;
+}

@@ -3,6 +3,12 @@ $color_2: var(--black);
 $background-color_1: var(--white);
 $gray-color: var(--grey-light-2);
 $arrow-color: var(--green-side-arrow);
+$black: var(--black);
+$light-gray: var(--grey-light);
+$white: var(--white);
+$gray4: var(--gray-4);
+$thin-font: var(--too-thin-font);
+$medium-font: var(--medium-font);
 
 /*Header css start*/
 /*Header css end*/
@@ -19,18 +25,18 @@ $arrow-color: var(--green-side-arrow);
   justify-content: space-between;
   height: 70px;
   padding: 0 2.5rem;
-  border-bottom: 1px solid var(--grey-light);
+  border-bottom: 1px solid $light-gray;
 }
 
 .header_nav_menu{
   position: relative;
   display: flex;
-  background: var(--white);
+  background: $white;
   z-index: 999;
   padding: 0 2.5rem;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--grey-light);
+  border-bottom: 1px solid $light-gray;
 }
 
 .header_nav_menu_left {
@@ -50,7 +56,7 @@ $arrow-color: var(--green-side-arrow);
 
 .header_nav_menu_item{
   position: relative;
-  padding: 15px 32px;
+  padding: 15px 32px 15px 16px;
   cursor: pointer;
   min-width: 300px;
 
@@ -78,9 +84,13 @@ $arrow-color: var(--green-side-arrow);
 
 .header_nav_menu_items {
   align-items: center;
-  color: var(--black);
+  color: $black;
   font-weight: 500;
   margin: 2rem 0;
+  border-right: 1px solid $gray4;
+  padding-right: 22px;
+
+
 }
 
 .header_left_list {
@@ -91,6 +101,7 @@ $arrow-color: var(--green-side-arrow);
   font-weight: 500;
 }
 .header_left_list_item {
+
   display: flex;
   align-items: center;
   margin: 0 1.5rem;
@@ -98,8 +109,18 @@ $arrow-color: var(--green-side-arrow);
   img {
     width: 12px;
     margin-left: 0.5rem;
+    transition: .2s;
+  }
+
+  &:hover {
+    img{
+      transform: rotate(180deg);
+    }
   }
 }
+
+
+
 .header_right {
   display: flex;
   align-items: center;
@@ -113,14 +134,30 @@ $arrow-color: var(--green-side-arrow);
     border: 1px solid var(--grey-light);
     outline: none;
     width: 100%;
-    padding-left: 5rem;
+    padding-left: 4rem;
     &::placeholder {
-      font-weight: 700;
       padding: 0.8rem;
+      font-weight: $thin-font;
+      color: $black;
     }
   }
 }
 .header_right_form_input_icons {
+  position: absolute;
+  left: 212px;
+  border-left: 1px solid var(--grey-light);
+  padding: 0 0 0 13px;
+  top: 11px;
+  display: flex;
+  max-height: 18px;
+  img {
+    max-width: 13px;
+    position: relative;
+    right: -7px;
+  }
+}
+
+.header_left_form_input_icons{
   position: absolute;
   display: flex;
   align-items: center;
@@ -128,13 +165,21 @@ $arrow-color: var(--green-side-arrow);
   left: 16px;
   img {
     &:nth-child(1) {
-      width: 20px;
+      width: 22px;
+      position: relative;
+      top: -2px;
     }
     &:nth-child(2) {
       width: 12px;
     }
   }
 }
+
+
+
+
+
+
 .header_right_btns {
-  margin-left: 1rem;
+margin-left: 1rem;
 }
