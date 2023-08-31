@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styles from './SubMenus.module.scss';
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap';
 import {r_arrow} from "../../assets";
 
 const FindTalent = ({items, order, arrows, rightContent}) => {
