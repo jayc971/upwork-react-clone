@@ -49,6 +49,9 @@ $medium-font: var(--medium-font);
 .header_left {
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 999;
+
   img {
     height: 2.5rem;
   }
@@ -99,6 +102,7 @@ $medium-font: var(--medium-font);
   margin-left: 2rem;
   color: $color_2;
   font-weight: 500;
+  margin: 0;
 }
 .header_left_list_item {
 
@@ -112,11 +116,7 @@ $medium-font: var(--medium-font);
     transition: .2s;
   }
 
-  &:hover {
-    img{
-      transform: rotate(180deg);
-    }
-  }
+
 }
 
 
@@ -124,6 +124,8 @@ $medium-font: var(--medium-font);
 .header_right {
   display: flex;
   align-items: center;
+  position: absolute;
+  right: 3rem;
 }
 .header_right_form {
   position: relative;
@@ -175,11 +177,7 @@ $medium-font: var(--medium-font);
   }
 }
 
-
-
-
-
-
 .header_right_btns {
 margin-left: 1rem;
 }
+

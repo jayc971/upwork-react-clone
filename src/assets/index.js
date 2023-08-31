@@ -50,6 +50,8 @@ import support from "./support.svg";
 import twitter from "./twitter.svg";
 import youtube from "./youtube.svg";
 
+import r_arrow from "./r_arrow.svg";
+
 export {
     airbnb ,
     airbnb_2 ,
@@ -91,5 +93,6 @@ export {
     support ,
     twitter ,
     youtube,
-    up_your_work
+    up_your_work,
+    r_arrow
 }
