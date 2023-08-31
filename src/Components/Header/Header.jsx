@@ -3,7 +3,7 @@ import {dropdown, logo, search} from "../../assets";
 import {useState} from "react";
 import FindTalent from "../SubMenus/FindTalent";
 import styles from "./Header.module.scss";
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Header() {
 
