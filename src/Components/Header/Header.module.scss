@@ -1,6 +1,27 @@
+@import '../../styles/colors.scss';
 
   .hovered{
     transform: rotate(180deg);
   }
 
 
+.header_left_list{
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+  color: $color_2;
+  font-weight: 500;
+  margin: 0;
+
+  @media screen and (max-width: 992px){
+      display: none;
+  }
+}
+
+
+
+.tech__tags{
+  Button{
+    min-width: 2rem;
+  }
+}

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {dropdown, logo, search} from "../../assets";
 import {useState} from "react";
 import FindTalent from "../SubMenus/FindTalent";
 import styles from "./Header.module.scss";
+import {Button} from "reactstrap";
 
 function Header() {
 
@@ -17,19 +18,76 @@ function Header() {
             subItems: [
                 {
                     title: "Post a Job and Hire a Pro",
-                    subTitle: "Talent Marketplace"
+                    subTitle: "Talent Marketplace",
+                    innerContents: [
+                        {
+                            midContent: <> <div className={`w-100 justify-content-between ${styles.tech__tags}`}>
+                                <Button className={"m-2"} outline color="primary">MySQL</Button>{' '}
+                                <Button className={"m-2"} outline color="secondary">PHP</Button>{' '}
+                                <Button className={"m-2"} outline color="success">MongoDB</Button>{' '}
+                                <Button className={"m-2"} outline color="info">AngularJS</Button>{' '}
+                                <Button className={"m-2"} outline color="warning">Express</Button>{' '}
+                                <Button className={"m-2"} outline color="danger">Vue</Button>
+                                <Button className={"m-2"} outline color="primary">PostgreSQL</Button>{' '}
+                                <Button className={"m-2"} outline color="secondary">Ruby</Button>{' '}
+                                <Button className={"m-2"} outline color="success">Django</Button>{' '}
+                                <Button className={"m-2"} outline color="info">Java</Button>{' '}
+                                <Button className={"m-2"} outline color="warning">Spring Boot</Button>{' '}
+                                <Button className={"m-2"} outline color="danger">Laravel</Button>
+                                <Button className={"m-2"} outline color="primary">React</Button>{' '}
+                                <Button className={"m-2"} outline color="secondary">C#</Button>{' '}
+                                <Button className={"m-2"} outline color="success">ASP.NET Core</Button>{' '}
+                                <Button className={"m-2"} outline color="info">Flutter</Button>{' '}
+                                <Button className={"m-2"} outline color="warning">JavaScript</Button>{' '}
+                                <Button className={"m-2"} outline color="danger">Node.js</Button>
+                            </div></>,
+                            rightContent: <><p>Development & IT<br/>Design & Creative<br/>Sales & Marketing<br/>Writing & Translation<br/>Admin & Customer Support<br/>Finance & Accounting<br/>HR & Training<br/>Legal<br/>Engineering & Architecture<br/>Hire freelancers</p></>,
+                        }
+                    ]
                 },
                 {
                     title: "Browse and buy projects",
-                    subTitle: "Project Catalog"
+                    subTitle: "Project Catalog",
+                    innerContents: [
+                        {
+                            midContent: <>
+                                <p>Web design</p> <p>Graphic Designer</p> <p>Copywriting</p> <p>Photographer</p> <p>Web development</p> <p>Web Developer</p> <p>Website content writer</p> <p>Graphics</p></>,
+
+                            rightContent: <>
+
+                               <p>Where work gets done</p>
+                              <Button className={"w-100"} outline color={"secondary"}>Guides
+
+                              <br/> <h3>Getting Started as a Freelancer</h3>
+                              </Button><br/><br/>
+
+                                    <Button className={"w-100"} outline color={"warning"}>Guides
+                                    <br/><h3>Growing Your Freelance Career</h3>
+
+                                    </Button><br/><br/>
+
+                                        <Button className={"w-100"} outline color={"success"}>Guides
+                                        <br/> <h3>Hiring & Working with Independent Talent</h3>
+
+                                        </Button>
+
+
+
+                            </>
+                        }
+                    ]
                 },
                 {
                     title: "Get advise from an industry expert",
-                    subTitle: "Consultations"
+                    subTitle: "Consultations",
+                    innerContents: [
+                        {
+                            midContent: <><p>Under development...</p></>,
+                            rightContent: <><p>Under development...</p></>
+                        }
+                    ]
                 }
-            ],
-            rightContent: <><p>Talent MarketplaceTM</p>
-                <p>Learn about working with talent or explore your specific hiring needs.</p></>
+            ]
         },
         {
             title: "Find Work",
@@ -48,31 +106,34 @@ function Header() {
                 {
                     title: "Find ways to promote yourself",
                     subTitle: "Show clients you're the one they want"
-                }],
-            rightContent: ""
+                }]
         },
         {
             title: "Why Upwork",
             link: "#",
             id: 2,
-            subItemsOrder: "",
+            subItemsOrder: "d-flex",
             arrows: false,
             subItems: [ {
                 title: "Post a Job and Hire a Pro",
                 subTitle: "Talent Marketplace"
-            }],
-            rightContent: ""
+            },{
+                title: "Post a Job and Hire a Pro",
+                subTitle: "Talent Marketplace"
+            },{
+                title: "Post a Job and Hire a Pro",
+                subTitle: "Talent Marketplace"
+            }]
         }
     ]
 
 
 
-    const ListWithRef = ({id, text, subItems, subItemsOrder, arrows, rightContent})=>{
-        const ref = React.useRef(null);
+    const ListWithRef = ({id, text, subItemsOrder, arrows, subItems})=>{
+        const ref = useRef(null);
         const [isDropdownVisible, setDropdownVisible] = useState(false);
 
         const handleMouseEnter = (e) => {
-
             setDropdownVisible(true);
         };
 
@@ -86,7 +147,7 @@ function Header() {
         <li ref={ref} id={id} className="header_left_list_item " onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             {text}
             <img id={id} src={dropdown} alt="" className={isDropdownVisible && styles.hovered}/>
-            {(isDropdownVisible && ((e)=>e.current.id === id)) && <FindTalent items={subItems} rightContent={rightContent} arrows={arrows} order={subItemsOrder}/>}
+            {(isDropdownVisible && ((e)=>e.current.id === id)) && <FindTalent subItems={subItems} arrows={arrows} order={subItemsOrder}/>}
         </li></>
         );
     }
@@ -98,11 +159,11 @@ function Header() {
             <div className="header_left w-100">
                 <img src={logo} alt=""/>
 
-                <ul className="header_left_list d-flex">
+                <ul className={`${styles.header_left_list}`}>
                     {HeaderItems.map((item,index)=>{
 
                         return (
-                            <ListWithRef rightContent={item.rightContent} arrows={item.arrows} subItemsOrder={item.subItemsOrder} subItems={item.subItems} id={item.id} text={item.title}  key={index}/>
+                            <ListWithRef subItems={item.subItems} arrows={item.arrows} subItemsOrder={item.subItemsOrder} id={item.id} text={item.title}  key={index}/>
                         )
                     },this)
 

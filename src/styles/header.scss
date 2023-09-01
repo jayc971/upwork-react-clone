@@ -1,14 +1,4 @@
-$color_1: var(--grey);
-$color_2: var(--black);
-$background-color_1: var(--white);
-$gray-color: var(--grey-light-2);
-$arrow-color: var(--green-side-arrow);
-$black: var(--black);
-$light-gray: var(--grey-light);
-$white: var(--white);
-$gray4: var(--gray-4);
-$thin-font: var(--too-thin-font);
-$medium-font: var(--medium-font);
+@import 'colors.scss';
 
 /*Header css start*/
 /*Header css end*/
@@ -95,21 +85,13 @@ $medium-font: var(--medium-font);
 
 
 }
-
-.header_left_list {
-  display: flex;
-  align-items: center;
-  margin-left: 2rem;
-  color: $color_2;
-  font-weight: 500;
-  margin: 0;
-}
 .header_left_list_item {
 
   display: flex;
   align-items: center;
   margin: 0 1.5rem;
   cursor: pointer;
+  z-index: 999;
   img {
     width: 12px;
     margin-left: 0.5rem;
