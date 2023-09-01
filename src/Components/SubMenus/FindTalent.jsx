@@ -41,12 +41,12 @@ const FindTalent = ({order, arrows, subItems}) => {
         {order !== 'd-flex' && <> <ul className={`bg-white col-lg-2`}>
             <li className={''}>
 
-                <p>{currentInner[0] ?? `yTalent MarketplaceTM`}</p>
+                <p>{currentInner[0] ?? `  `}</p>
             </li>
         </ul> <ul className={'bg-white  col-lg-6'}>
              <li className={''}>
 
-                <p>{currentInner[1] ?? `dsadsadasdasdsadsadas`}</p>
+                <p>{currentInner[1] ?? `  `}</p>
              </li>
              </ul></>}
 
