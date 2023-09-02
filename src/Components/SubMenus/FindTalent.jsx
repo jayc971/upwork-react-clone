@@ -2,9 +2,13 @@ import React, {useState, useRef} from 'react';
 import styles from './SubMenus.module.scss';
 import {dropdown, r_arrow} from "../../assets";
 
-const FindTalent = ({order, arrows, subItems}) => {
+const FindTalent = ({order, arrows, subItems, defaultSubItems}) => {
+    console.log('dsadsadas',subItems)
 
-    const [currentInner, setCurrentInner] = useState([' ']);
+    const defaultInner = defaultSubItems;
+
+    const [currentInner, setCurrentInner] = useState('');
+
 
     const InnerWithRef = ({index, title, subTitle, arrows, innerContents, midContent, rightContent})=>{
         const ref = useRef(null);
@@ -25,10 +29,13 @@ const FindTalent = ({order, arrows, subItems}) => {
     }
 
 
-    return  (<div className={`${styles.dropdown__menu} d-flex col-lg-12`}>
+    return  (
+
+        <div className={`${styles.dropdown__menu} d-flex col-lg-12`}>
 
            <ul className={`${styles.dropdown__menu_ul} ${order} col-lg-4 `}>
                {subItems.map((subItem, index) =>{
+
                    return(<>
                             <InnerWithRef rightContent={subItem.innerContents && subItem.innerContents[0].rightContent} midContent={subItem.innerContents && subItem.innerContents[0].midContent} innerContents={subItem.innerContents} index={index} title={subItem.title} arrows={arrows} subTitle={subItem.subTitle} key={index}/>
                        </>)
@@ -41,12 +48,12 @@ const FindTalent = ({order, arrows, subItems}) => {
         {order !== 'd-flex' && <> <ul className={`bg-white col-lg-2`}>
             <li className={''}>
 
-                <p>{currentInner[0] ?? `  `}</p>
+                <p>{currentInner[0] ?? defaultInner[0]}</p>
             </li>
         </ul> <ul className={'bg-white  col-lg-6'}>
              <li className={''}>
 
-                <p>{currentInner[1] ?? `  `}</p>
+                <p>{currentInner[1] ?? defaultInner[1]}</p>
              </li>
              </ul></>}
 

@@ -7,6 +7,26 @@ import {Button} from "reactstrap";
 
 function Header() {
 
+    const defaultSubItems = [<><div className={`w-100 justify-content-between ${styles.tech__tags}`}>
+        <Button className={"m-2"} outline color="primary">MySQL</Button>{' '}
+        <Button className={"m-2"} outline color="secondary">PHP</Button>{' '}
+        <Button className={"m-2"} outline color="success">MongoDB</Button>{' '}
+        <Button className={"m-2"} outline color="info">AngularJS</Button>{' '}
+        <Button className={"m-2"} outline color="warning">Express</Button>{' '}
+        <Button className={"m-2"} outline color="danger">Vue</Button>
+        <Button className={"m-2"} outline color="primary">PostgreSQL</Button>{' '}
+        <Button className={"m-2"} outline color="secondary">Ruby</Button>{' '}
+        <Button className={"m-2"} outline color="success">Django</Button>{' '}
+        <Button className={"m-2"} outline color="info">Java</Button>{' '}
+        <Button className={"m-2"} outline color="warning">Spring Boot</Button>{' '}
+        <Button className={"m-2"} outline color="danger">Laravel</Button>
+        <Button className={"m-2"} outline color="primary">React</Button>{' '}
+        <Button className={"m-2"} outline color="secondary">C#</Button>{' '}
+        <Button className={"m-2"} outline color="success">ASP.NET Core</Button>{' '}
+        <Button className={"m-2"} outline color="info">Flutter</Button>{' '}
+        <Button className={"m-2"} outline color="warning">JavaScript</Button>{' '}
+        <Button className={"m-2"} outline color="danger">Node.js</Button>
+    </div></>,<><p>Development & IT<br/>Design & Creative<br/>Sales & Marketing<br/>Writing & Translation<br/>Admin & Customer Support<br/>Finance & Accounting<br/>HR & Training<br/>Legal<br/>Engineering & Architecture<br/>Hire freelancers</p></>];
 
     const HeaderItems = [
         {
@@ -21,27 +41,8 @@ function Header() {
                     subTitle: "Talent Marketplace",
                     innerContents: [
                         {
-                            midContent: <> <div className={`w-100 justify-content-between ${styles.tech__tags}`}>
-                                <Button className={"m-2"} outline color="primary">MySQL</Button>{' '}
-                                <Button className={"m-2"} outline color="secondary">PHP</Button>{' '}
-                                <Button className={"m-2"} outline color="success">MongoDB</Button>{' '}
-                                <Button className={"m-2"} outline color="info">AngularJS</Button>{' '}
-                                <Button className={"m-2"} outline color="warning">Express</Button>{' '}
-                                <Button className={"m-2"} outline color="danger">Vue</Button>
-                                <Button className={"m-2"} outline color="primary">PostgreSQL</Button>{' '}
-                                <Button className={"m-2"} outline color="secondary">Ruby</Button>{' '}
-                                <Button className={"m-2"} outline color="success">Django</Button>{' '}
-                                <Button className={"m-2"} outline color="info">Java</Button>{' '}
-                                <Button className={"m-2"} outline color="warning">Spring Boot</Button>{' '}
-                                <Button className={"m-2"} outline color="danger">Laravel</Button>
-                                <Button className={"m-2"} outline color="primary">React</Button>{' '}
-                                <Button className={"m-2"} outline color="secondary">C#</Button>{' '}
-                                <Button className={"m-2"} outline color="success">ASP.NET Core</Button>{' '}
-                                <Button className={"m-2"} outline color="info">Flutter</Button>{' '}
-                                <Button className={"m-2"} outline color="warning">JavaScript</Button>{' '}
-                                <Button className={"m-2"} outline color="danger">Node.js</Button>
-                            </div></>,
-                            rightContent: <><p>Development & IT<br/>Design & Creative<br/>Sales & Marketing<br/>Writing & Translation<br/>Admin & Customer Support<br/>Finance & Accounting<br/>HR & Training<br/>Legal<br/>Engineering & Architecture<br/>Hire freelancers</p></>,
+                            midContent: defaultSubItems[0],
+                            rightContent: defaultSubItems[1],
                         }
                     ]
                 },
@@ -129,7 +130,7 @@ function Header() {
 
 
 
-    const ListWithRef = ({id, text, subItemsOrder, arrows, subItems})=>{
+    const ListWithRef = ({id, text, subItemsOrder, arrows, subItems, defaultSubItems})=>{
         const ref = useRef(null);
         const [isDropdownVisible, setDropdownVisible] = useState(false);
 
@@ -147,7 +148,8 @@ function Header() {
         <li ref={ref} id={id} className="header_left_list_item " onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             {text}
             <img id={id} src={dropdown} alt="" className={isDropdownVisible && styles.hovered}/>
-            {(isDropdownVisible && ((e)=>e.current.id === id)) && <FindTalent subItems={subItems} arrows={arrows} order={subItemsOrder}/>}
+            {(isDropdownVisible && ((e)=>e.current.id === id)) &&
+                <FindTalent defaultSubItems={defaultSubItems} subItems={subItems} arrows={arrows} order={subItemsOrder}/>}
         </li></>
         );
     }
@@ -163,7 +165,7 @@ function Header() {
                     {HeaderItems.map((item,index)=>{
 
                         return (
-                            <ListWithRef subItems={item.subItems} arrows={item.arrows} subItemsOrder={item.subItemsOrder} id={item.id} text={item.title}  key={index}/>
+                            <ListWithRef subItems={item.subItems} arrows={item.arrows} id={item.id} text={item.title}  key={index} defaultSubItems={defaultSubItems} />
                         )
                     },this)
 
